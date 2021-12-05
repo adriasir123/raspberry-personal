@@ -92,6 +92,33 @@ Restart:
 sudo systemctl restart vsftpd.service
 ```
 
+
+
+## MiniDLNA
+
+Requirements:
+```
+sudo apt install minidlna
+```
+
+Modify these lines in `/etc/minidlna.conf`:
+```
+media_dir=/home/sisyphus/external-hdd/media-libraries
+friendly_name=tartarus-DLNA
+```
+
+Restart:
+```
+sudo systemctl restart minidlna.service
+```
+
+
+
+
+
+
+
+
 # External HDD
 
 Create mount point directory:
