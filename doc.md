@@ -37,6 +37,8 @@ Slow (not recommended)
 
 ## vsftpd
 
+https://phoenixnap.com/kb/install-ftp-server-on-ubuntu-vsftpd
+
 Install and enable:
 ```
 sudo apt install vsftpd
