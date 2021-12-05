@@ -27,7 +27,6 @@ Usage:
 
 
 
-
 # Software
 
 Slow (not recommended)
@@ -36,4 +35,75 @@ Slow (not recommended)
 - Nextcloud
 - Modded minecraft server
 
-## 
+## vsftpd
+
+Install and enable:
+```
+sudo apt install vsftpd
+sudo systemctl enable vsftpd
+```
+
+Backup config:
+```
+sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.backup
+```
+
+Create FTP user:
+```
+sudo useradd -m mama
+sudo passwd mama
+```
+Password: mama
+
+Change HOME_DIR:
+```
+sudo usermod -d /home/sisyphus/external-hdd/media-libraries/mama mama
+```
+
+Modify `/etc/vsftpd.conf`:
+```
+listen=YES
+listen_ipv6=NO
+connect_from_port_20=YES
+anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+chroot_local_user=YES
+allow_writeable_chroot=YES
+secure_chroot_dir=/var/run/vsftpd/empty
+pam_service_name=vsftpd
+pasv_enable=YES
+pasv_min_port=40000
+pasv_max_port=45000
+userlist_enable=YES
+userlist_file=/etc/vsftpd.userlist
+userlist_deny=NO
+```
+
+Modify `/etc/vsftpd.userlist`:
+```
+mama
+```
+
+Restart:
+```
+sudo systemctl restart vsftpd.service
+```
+
+# External HDD
+
+Create mount point directory:
+```
+sudo mkdir external-hdd
+```
+
+Mount the partition to the directory:
+```
+sudo mount -t auto -v /dev/sda1 external-hdd
+```
+
+
+
+
+
+
