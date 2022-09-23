@@ -126,13 +126,36 @@ Create mount point directory:
 sudo mkdir external-hdd
 ```
 
+## Non-persistent quick mount
+
 Mount the partition to the directory:
 ```
 sudo mount -t auto -v /dev/sda1 external-hdd
 ```
 
+## Persistent mount
 
+Find the UUID of the partition
+```
+sudo blkid /dev/sda1
+```
 
+Backup fstab:
+```
+sudo cp /etc/fstab /etc/fstab.bkp
+```
 
+Add the next line to the end of fstab:
+```
+UUID=68967822-f8be-494a-98f4-cc1f953f6b6e /home/ubuntu/external-hdd       ext4    noatime,x-systemd.automount,x-systemd.device-timeout=10,x-systemd.idle-timeout=1min 0 2
+```
 
+Make the changes in fstab work:
+```
+sudo mount -a
+```
 
+Reboot to make sure the changes worked:
+```
+sudo reboot
+```
