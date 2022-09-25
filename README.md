@@ -29,11 +29,12 @@ Usage:
 
 # Software
 
-Slow (not recommended)
+Not recommended (slow or other reasons)
 
 - Jellyfin 
 - Nextcloud
 - Modded minecraft server
+- UMS
 
 ## vsftpd
 
@@ -114,8 +115,35 @@ sudo systemctl restart minidlna.service
 
 
 
+## Plex 
 
+Repository:
 
+```
+curl https://downloads.plex.tv/plex-keys/PlexSign.key | sudo apt-key add -
+echo deb https://downloads.plex.tv/repo/deb public main | sudo tee /etc/apt/sources.list.d/plexmediaserver.list
+```
+
+Update and install:
+
+```
+sudo apt update
+sudo apt install plexmediaserver
+```
+
+Verify that Plex is running:
+
+```
+sudo systemctl status plexmediaserver
+```
+
+Set plex owner in libraries:
+
+```
+sudo chown -R plex: /home/ubuntu/external-hdd/media-libraries
+```
+
+Access Plex on: http://192.168.1.200:32400/web
 
 
 
