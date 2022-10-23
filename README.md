@@ -71,6 +71,7 @@ sudo usermod -d /home/sisyphus/external-hdd/media-libraries/adrian adrian
 ```
 
 Modify `/etc/vsftpd.conf`:
+
 ```
 listen=YES
 listen_ipv6=NO
@@ -91,8 +92,10 @@ userlist_deny=NO
 ```
 
 Modify `/etc/vsftpd.userlist`:
+
 ```
 mama
+adrian
 ```
 
 Restart:
