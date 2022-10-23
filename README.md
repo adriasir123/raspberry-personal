@@ -47,20 +47,27 @@ sudo systemctl enable vsftpd
 ```
 
 Backup config:
+
 ```
 sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.backup
 ```
 
-Create FTP user:
+Create FTP users:
+
 ```
 sudo useradd -m mama
 sudo passwd mama
+sudo useradd -m adrian
+sudo passwd adrian
 ```
-Password: mama
 
-Change HOME_DIR:
+Passwords: mama, adrian
+
+Change HOME_DIRs:
+
 ```
 sudo usermod -d /home/sisyphus/external-hdd/media-libraries/mama mama
+sudo usermod -d /home/sisyphus/external-hdd/media-libraries/adrian adrian
 ```
 
 Modify `/etc/vsftpd.conf`:
@@ -89,6 +96,7 @@ mama
 ```
 
 Restart:
+
 ```
 sudo systemctl restart vsftpd.service
 ```
@@ -150,6 +158,7 @@ Access Plex on: http://192.168.1.200:32400/web
 # External HDD
 
 Create mount point directory:
+
 ```
 sudo mkdir external-hdd
 ```
@@ -163,7 +172,8 @@ sudo mount -t auto -v /dev/sda1 external-hdd
 
 ## Persistent mount
 
-Find the UUID of the partition
+Find the UUID of the partition:
+
 ```
 sudo blkid /dev/sda1
 ```
