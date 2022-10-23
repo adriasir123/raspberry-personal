@@ -18,7 +18,7 @@ Usage:
 
 # Access info
 
-- OS: Ubuntu 20.04.3 LTS
+- OS: Ubuntu Server 20.04.5 LTS
 - User: sisyphus
 - Password: zEBqw389
 - Hostname: tartarus
